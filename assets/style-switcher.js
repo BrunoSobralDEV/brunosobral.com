@@ -2,12 +2,16 @@
 const styleSwitcherToggle = document.querySelector('.style-switcher-toggler');
 styleSwitcherToggle.addEventListener('click', () => {
   document.querySelector('.style-switcher').classList.toggle('open');
+  styleSwitcherToggle.querySelector('i').classList.toggle('fa-spin');
+  
 })
 
-// hide style switcher on scroll
+// hide style switcher on scroll and change icon
 window.addEventListener('scroll', () => {
-  if(document.querySelector('.style-switcher').classList.contains('open')) {
+  if(document.querySelector('.style-switcher').classList.contains('open') &&
+  styleSwitcherToggle.querySelector('i').classList.contains('fa-spin')) {
     document.querySelector('.style-switcher').classList.remove('open');
+    styleSwitcherToggle.querySelector('i').classList.remove('fa-spin');
   }
 })
 
