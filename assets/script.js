@@ -5,3 +5,10 @@ var typed = new Typed('.typing',{
   BackSpeed: 60,
   loop: true
 })
+
+
+/*** Back to top */
+var btnToTop = document.querySelector(".back-to-top");
+btnToTop.addEventListener("click", function() {
+    window.scrollTo(0, 0);
+});

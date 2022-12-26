@@ -43,18 +43,26 @@
 
       <!-- Home Section Start -->
       <section id="home" class="home section">
-        <div class="container">
+        <div id="home-container" class="container">
           <div class="row">
             <div class="home-info padd-15">
-              <h3 class="hello">Olá, meu nome é <span class="name">Bruno Sobral</span></h3>
-              <h3 class="my-profession">Eu sou <span class="typing"></span></h3>
+              <h3 class="hello">Olá, meu nome é <br><span class="name">Bruno Sobral</span></h3>
+              <h3 class="my-profession"><span class="typing"></span></h3>
               <p>
                 Eu sou Desenvolvedor front-end, 
                 crio aplicações web com ReactJS+TypeScript. 
                 Graduando em Análise e Desenvolvimento de Sistemas e 
                 graduado em Ciências Contábeis.
               </p>
-              <a href="#contact" class="btn hire-me">Contrate-me</a>
+              <div class="btn-group">
+                <div class="row padd-15" style="gap: 10px;">
+                  <a href="#contact" class="btn btn-without-bg"><i class="fa-brands fa-github"></i> GitHub</a>
+                  <a href="#contact" class="btn btn-without-bg"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                </div>
+                <div class="row padd-15" style="margin-top: 10px;">
+                  <a href="#contact" class="btn hire-me">Contrate-me</a>
+                </div>
+              </div>
             </div>
             <div class="home-img padd-15">
               <!-- <img src="assets/img/dev.svg" alt=""> -->
@@ -390,15 +398,11 @@
           <div class="row">
             <!-- Contact info item start -->
             <div class="contact-info-item padd-15">
-              <div class="icon"><i class="fa fa-phone"></i></div>
-              <h3>Call Us On</h3>
-              <p>+55 79 9 8811-3880</p>
-            </div>
-            <!-- Contact info item end -->
-            <!-- Contact info item start -->
-            <div class="contact-info-item padd-15">
-              <div class="icon"><i class="fa fa-map-marker-alt"></i></div>
-              <h3>Office</h3>
+              <div class="icon">
+                <!-- <i class="fa fa-phone"></i> -->
+                <i class="fa-brands fa-whatsapp"></i>
+              </div>
+              <h3>whatsApp</h3>
               <p>+55 79 9 8811-3880</p>
             </div>
             <!-- Contact info item end -->
@@ -411,9 +415,20 @@
             <!-- Contact info item end -->
             <!-- Contact info item start -->
             <div class="contact-info-item padd-15">
-              <div class="icon"><i class="fa fa-globe-europe"></i></div>
-              <h3>Website</h3>
-              <p>www.brunosobral.com</p>
+              <a href="https://github.com/BrunoSobralDEV" target="_blank">
+                <div class="icon"><i class="fa-brands fa-github"></i></div>
+                <h3>GitHub</h3>
+                <p>github.com/BrunoSobralDEV</p>
+              </a>
+            </div>
+            <!-- Contact info item end -->
+            <!-- Contact info item start -->
+            <div class="contact-info-item padd-15">
+              <a href="https://github.com/BrunoSobralDEV" target="_blank">
+                <div class="icon"><i class="fa-brands fa-linkedin"></i></div>
+                <h3>LinkedIn</h3>
+                <p>www.brunosobral.com</p>
+              </a>
             </div>
             <!-- Contact info item end -->
           </div>
@@ -471,6 +486,9 @@
     <div class="day-night s-icon">
       <i class="fas"></i>
     </div>
+    <div class="back-to-top s-icon">
+      <i class="fa-solid fa-arrow-up-right-dots"></i>
+    </div>
     <h4>Theme Colors</h4>
     <div class="colors">
       <span class="color-1" onclick="setActiveStyle('color-1')"></span>
@@ -481,7 +499,7 @@
     </div>
   </div>
   <!-- Style Switcher End -->
-  
+    
   <!-- JS Files -->
 
   <!-- jquery -->

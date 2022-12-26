@@ -122,7 +122,18 @@ margin-top: 8px;
 .btn:hover {
   transform: scale(1.05);
 }
-
+.btn .fa-brands {
+  font-size: 25px;
+  color: var(--skin-color);
+}
+.btn-without-bg {
+  color: var(--skin-color);
+  background: var(--bg-black-900);
+  border: 1px solid var(--skin-color);
+}
+.back-to-top {
+  top: 110px;
+}
 .shadow-dark {
   box-shadow:  0 0 20px rgba(48, 46, 77, 0.15);
 }
@@ -583,7 +594,8 @@ h3.my-profession {
   display: inline-block;
 }
 
-.contact .contact-info-item .icon .fa {
+.contact .contact-info-item .icon .fa, 
+.contact .contact-info-item .icon .fa-brands {
   font-size: 25px;
   color: var(--skin-color);
 }
@@ -637,7 +649,11 @@ h3.my-profession {
   padding: 0 50px;
 }
 
+/**** Responsive *******/
 @media (max-width:1199px) {
+  #home-container {
+    padding-top: 0px;
+  }
   .aside {
     left: -270px;
   }
