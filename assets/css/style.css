@@ -127,9 +127,12 @@ margin-top: 8px;
   color: var(--skin-color);
 }
 .btn-without-bg {
+  height: 48px;
   color: var(--skin-color);
   background: var(--bg-black-900);
   border: 1px solid var(--skin-color);
+  display: flex;
+  gap: 5px;
 }
 .back-to-top {
   top: 110px;
@@ -595,7 +598,7 @@ h3.my-profession {
 }
 
 .contact .contact-info-item .icon .fa, 
-.contact .contact-info-item .icon .fa-brands-brands {
+.contact .contact-info-item .icon .fa-brands {
   font-size: 25px;
   color: var(--skin-color);
 }
@@ -634,7 +637,7 @@ h3.my-profession {
   background-color: var(--bg-black-100);
   border: 1px solid var(--bg-black-50);
   padding: 10px 25px;
-  font-size: 16px;
+  font-size: 16px;font-family: 'Courier New', Courier, monospace;
   color: var(--text-black-700);
   transition: all 0.3s ease;
 }
