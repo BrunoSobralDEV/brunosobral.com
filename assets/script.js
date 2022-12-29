@@ -7,6 +7,12 @@ var typed = new Typed('.typing',{
 })
 
 
+/*** Back to top */
+var btnToTop = document.querySelector(".back-to-top");
+btnToTop.addEventListener("click", function() {
+    window.scrollTo(0, 0);
+});
+
 /** Age */
 let birthdayYear = 1991;
 let currentYear = new Date().getFullYear();
