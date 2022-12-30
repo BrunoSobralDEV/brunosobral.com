@@ -29,6 +29,10 @@ body {
   box-sizing: border-box;
 }
 
+a { 
+  color: inherit; 
+} 
+
 ::before,::after {
   box-sizing: border-box;
 }
@@ -607,7 +611,7 @@ h3.my-profession {
   font-size: 25px;
   color: var(--skin-color);
 }
-.contact .contact-info-item h4 {
+.contact .contact-info-item h3 {
   font-size: 18px;
   font-weight: 700;
   color: var(--text-black-900);
