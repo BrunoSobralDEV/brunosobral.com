@@ -53,6 +53,10 @@ ul {
   display: none !important;
 }
 
+.color-theme {
+  color: var(--skin-color);
+}
+
 .main-content {
   padding-left: 270px;position: relative;
 }
