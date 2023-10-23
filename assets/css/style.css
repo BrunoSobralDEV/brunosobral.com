@@ -298,6 +298,14 @@ h3.my-profession {
   font-weight: 700;
   color: var(--skin-color);
 }
+#loading-screen {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-black-900);
+  transition: opacity 1s;
+}
 .home-info p {
   margin-bottom: 70px;
   font-size: 20px;

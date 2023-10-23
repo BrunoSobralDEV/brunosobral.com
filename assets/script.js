@@ -6,7 +6,7 @@ var typed = new Typed('.typing',{
   loop: true
 })
 var typed = new Typed('.typing-load',{
-  strings: ['. . .'],
+  strings: ['Bruno Sobral. . .'],
   typeSpeed: 80,
   BackSpeed: 60,
   loop: true
@@ -17,10 +17,10 @@ var i = setInterval(function () {
   clearInterval(i);
 
   // O código desejado é apenas isto:
-  document.querySelector("#loading").style.display = "none";
+  document.querySelector("#loading-screen").style.display = "none";
   document.querySelector(".main-container").style.display = "inline";
 
-}, 4000);
+}, 300110);
 
 function scrollToElement(divId) {
   var section = document.querySelector(divId);
