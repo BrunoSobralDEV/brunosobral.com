@@ -28,3 +28,32 @@ let currentYear = new Date().getFullYear();
 let ageValue = currentYear - birthdayYear;
 
 document.querySelector('#age').innerHTML = ageValue;
+
+window.addEventListener('scroll', function () {
+  var menuItems = document.querySelectorAll('.menu-item');
+  var sections = document.querySelectorAll('section');
+
+  var currentSection = null;
+
+  sections.forEach(function (section) {
+    var sectionTop = section.offsetTop - 1;
+    var sectionBottom = sectionTop + section.offsetHeight;
+    
+    if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+      currentSection = section;
+    }
+  });
+
+  menuItems.forEach(function (menuItem) {
+    menuItem.classList.remove('active');
+  });
+
+  if (currentSection) {
+    var targetId = currentSection.getAttribute('id');
+    var currentMenuItem = document.querySelector('#a-' + targetId);
+    console.log(currentMenuItem);
+    if (currentMenuItem) {
+      currentMenuItem.classList.add('active');
+    }
+  }
+});
