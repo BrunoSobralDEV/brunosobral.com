@@ -6,11 +6,20 @@ var typed = new Typed('.typing',{
   loop: true
 })
 
+function scrollToElement(divId) {
+  var section = document.querySelector(divId);
+  if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+  }
+}
 
 /*** Back to top */
 var btnToTop = document.querySelector(".back-to-top");
 btnToTop.addEventListener("click", function() {
-    window.scrollTo(0, 0);
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 });
 
 /** Age */
