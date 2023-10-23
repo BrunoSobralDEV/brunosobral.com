@@ -292,6 +292,12 @@ h3.my-profession {
 .typing {
   color: var(--skin-color);
 }
+.typing-load {
+  font-family: 'Clicker Script', cursive;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--skin-color);
+}
 .home-info p {
   margin-bottom: 70px;
   font-size: 20px;
