@@ -51,7 +51,7 @@ window.addEventListener('scroll', function () {
   if (currentSection) {
     var targetId = currentSection.getAttribute('id');
     var currentMenuItem = document.querySelector('#a-' + targetId);
-    console.log(currentMenuItem);
+    
     if (currentMenuItem) {
       currentMenuItem.classList.add('active');
     }

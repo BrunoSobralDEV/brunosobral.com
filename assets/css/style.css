@@ -392,6 +392,12 @@ h3.my-profession {
   width: 100%;
   justify-content: space-around;
 }
+.about .about-content .skills .techs img:hover{
+  transition: all 0.3s ease;
+}
+.about .about-content .skills .techs img:hover{
+  transform: scale(1.15);
+}
 .about .about-content .skills .skill-item {
   flex: 0 0 100%;
   max-width: 100%;
@@ -663,6 +669,11 @@ h3.my-profession {
 .contact .contact-form .btn {
   height: 50px;
   padding: 0 50px;
+}
+
+::selection {
+  background-color: var(--skin-color);
+  color: white;
 }
 
 /**** Responsive *******/
