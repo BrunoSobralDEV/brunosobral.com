@@ -13,14 +13,20 @@ var typed = new Typed('.typing-load',{
 })
 
 var i = setInterval(function () {
-    
   clearInterval(i);
+  
+  document.querySelector("#loading-screen").classList.add("loaded");
 
-  // O código desejado é apenas isto:
-  document.querySelector("#loading-screen").style.display = "none";
   document.querySelector(".main-container").style.display = "inline";
+  setInterval(()=>{
+  document.querySelector("#loading-screen").style.opacity = 0;
 
-}, 300110);
+},500)
+  document.querySelector(".style-switcher").style.display='blcok'
+  document.querySelector(".aside").style.display='flex'
+  document.body.style.overflow='visible'
+}, 3000);
+// }, 575011);
 
 function scrollToElement(divId) {
   var section = document.querySelector(divId);
