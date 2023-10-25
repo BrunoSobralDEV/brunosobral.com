@@ -478,46 +478,48 @@
           <h4 class="contact-sub-title padd-15"></h4>
           
           <!-- Contact Form -->
-          <!-- <div class="row">
+          <div class="row">
             <div class="contact-form padd-15">
-              <div class="row">
-                <div class="form-item col-6 padd-15">
-                  <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Nome">
-                  </div>
-                </div>
-                <div class="form-item col-6 padd-15">
-                  <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Email">
-                  </div>
-                </div>
-              </div>
+              <form id="formMail">
                 <div class="row">
-                  <div class="form-item col-12 padd-15">
+                  <div class="form-item col-6 padd-15">
                     <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Assunto">
+                      <input type="text" class="form-control" placeholder="Nome" name="name">
+                    </div>
+                  </div>
+                  <div class="form-item col-6 padd-15">
+                    <div class="form-group">
+                      <input type="email" class="form-control" placeholder="Email" name="mail">
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-item col-12 padd-15">
                     <div class="form-group">
-                      <textarea name="" id="" class="form-control" placeholder="Mensagem"></textarea>
+                      <input type="text" class="form-control" placeholder="Assunto" name="subject">
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-item col-12 padd-15">
-                    <button type="submit" class="btn">
+                    <div class="form-group">
+                      <textarea class="form-control" placeholder="Mensagem" name="message"></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-item col-12 padd-15">
+                    <button type="submit" class="btn" onclick="sendMail(event)">
                       <i class="fa-sharp fa-solid fa-paper-plane"></i>
                       Enviar
                     </button>
                   </div>
                 </div>
+              </form>
             </div>
           </div>
         </div>
-      </section> -->
+      </section>
       <!-- Contact Section End -->
     </div>
     <!-- Main Content End -->
