@@ -58,34 +58,41 @@ window.addEventListener('scroll', function () {
   }
 });
 
-function sendMail(event) {
-  event.preventDefault();
+// function sendMail(event) {
+//   event.preventDefault();
 
-  const formMail= document.getElementById('formMail');
-  const form = new FormData(formMail);
-  const formData = {};
-  form.forEach((value, key) => {
-   formData[key]= value;
-  });
-  console.log(formData);
+//   const formMail= document.getElementById('formMail');
+//   const form = new FormData(formMail);
+//   const formData = {};
+//   form.forEach((value, key) => {
+//    formData[key]= value;
+//   });
+//   console.log(formData);
 
-  const url = 'https://us-central1-suporteweb-fbf71.cloudfunctions.net/app/sendmail';
-  const mailData = {
-    to: 'brunosobralss@hotmail.com',
-    subject: 'Msg de brunosobral.com',
-    html: `Nome:${formData.name}\nE-mail: ${formData.mail}\nAssunto: ${formData.subject}\nMensagem: ${formData.message}`
-  };
+//   const url = '';
+//   const mailData = {
+//     to: 'brunosobralss@hotmail.com',
+//     subject: 'Msg de brunosobral.com',
+//     html: `Nome:${formData.name}\nE-mail: ${formData.mail}\nAssunto: ${formData.subject}\nMensagem: ${formData.message}`
+//   };
 
-  fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json'},
-    body: JSON.stringify({mailData}),
-    mode: 'no-cors',
-  }).then(response => response.json())
-  .then(data => {
-    console.log('Resposta do servidor:', data);
-  })
-  .catch(error => {
-    console.error('Erro:', error);
-  });
-}
+//   fetch(url, {
+//     method: 'POST',
+//     headers: { 'Content-Type': 'application/json'},
+//     body: JSON.stringify({
+//       to: 'brunosobralss@hotmail.com',
+//       subject: 'Msg de brunosobral.com',
+//       html: `Nome:${formData.name}\nE-mail: ${formData.mail}\nAssunto: ${formData.subject}\nMensagem: ${formData.message}`
+//     }),
+//     mode: 'no-cors',
+//   }).then( response => {
+//     if (response.ok) {
+//       console.log('response ok',response);
+//     } else {
+//       console.log('response error',response);
+//     }
+//   })
+//   .catch(error => {
+//     console.error('Erro:', error);
+//   });
+// }
