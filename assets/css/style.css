@@ -678,6 +678,15 @@ h3.my-profession {
   height: 50px;
   padding: 0 50px;
 }
+.error-message {
+  font-size: 12px;
+  color: red;
+  font-weight: 600;
+  margin-left: 5px;
+}
+.error-border {
+  border: 2px solid red !important;
+}
 
 ::selection {
   background-color: var(--skin-color);

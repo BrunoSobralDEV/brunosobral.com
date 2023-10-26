@@ -487,11 +487,13 @@
                   <div class="form-item col-6 padd-15">
                     <div class="form-group">
                       <input type="text" class="form-control" placeholder="Nome" name="nome" required>
+                      <span id="nomeError" class="error-message"></span>
                     </div>
                   </div>
                   <div class="form-item col-6 padd-15">
                     <div class="form-group">
-                      <input type="email" class="form-control" placeholder="Email" name="email" required>
+                      <input type="email" class="form-control" placeholder="Email" name="email"  id="email" required>
+                      <span id="emailError" class="error-message"></span>
                     </div>
                   </div>
                 </div>
@@ -499,6 +501,7 @@
                   <div class="form-item col-12 padd-15">
                     <div class="form-group">
                       <input type="text" class="form-control" placeholder="Assunto" name="assunto">
+                      <span id="assuntoError" class="error-message"></span>
                     </div>
                   </div>
                 </div>
@@ -506,6 +509,7 @@
                   <div class="form-item col-12 padd-15">
                     <div class="form-group">
                       <textarea class="form-control" placeholder="Mensagem" name="mensagem" required></textarea>
+                      <span id="mensagemError" class="error-message"></span>
                     </div>
                   </div>
                 </div>

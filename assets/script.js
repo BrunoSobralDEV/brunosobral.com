@@ -62,6 +62,48 @@ function sendEmail(event) {
   event.preventDefault();
   const emailData = {};
   const formMail = document.querySelector('#formMail');
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailInput = formMail.querySelector('[name="email"]');
+  const emailError = document.getElementById('emailError');
+
+  let hasError = false;
+
+  function markError(element, errorSpan, message) {
+    element.classList.add('error-border');
+    errorSpan.textContent = message;
+    hasError = true;
+  }
+  
+  function clearError(element, errorSpan) {
+    element.classList.remove('error-border');
+    errorSpan.textContent = '';
+  }
+
+  const formElements = formMail.elements;
+  for (let i = 0; i < formElements.length; i++) {
+    const element = formElements[i];
+    const errorSpan = document.getElementById(element.name + 'Error');
+    
+    if(errorSpan) {
+      if (element.required && element.value.trim() === '') {
+        markError(element, errorSpan, 'Campo obrigatório.');
+      } else {
+        clearError(element, errorSpan);
+      }
+      if(element.type == 'email') {
+        if (!emailRegex.test(emailInput.value)) {
+          markError(element, emailError, 'O endereço de e-mail não é válido.');
+        } else {
+          clearError(element, emailError);
+        }
+      }
+    }
+  }
+
+  if (hasError) {
+    return
+  }
+  
   const btnSubmit = document.querySelector('#btnSubmit');
 
   btnSubmit.disabled = true;
@@ -71,9 +113,8 @@ function sendEmail(event) {
   form.forEach((value, key) => {
     emailData[key] = value;
   });
-//verificar campos vazios
   
-  fetch("https://formsu22bmit.co/ajax/brunosobralss@hotmail.com", {
+  fetch("https://formsubmit.co/ajax/brunosobralss@hotmail.com", {
     method: "POST",
     headers: { 
         'Content-Type': 'application/json',
@@ -88,6 +129,10 @@ function sendEmail(event) {
 })
     .then(response => {
       response.json();
+
+      form.forEach((value,name) => {
+        formMail.querySelector(`[name=${name}]`).value = '';
+      });
 
       Toastify({
         text: "😁 Obrigado!",
@@ -104,6 +149,7 @@ function sendEmail(event) {
     })
     .then(data => console.log(data))
     .catch(error => {
+      
       Toastify({
         text: "😧 Por favor, tente novamente",
         duration: 3000,
@@ -120,6 +166,5 @@ function sendEmail(event) {
     .finally(() => {
       btnSubmit.disabled = false;
       btnSubmit.textContent = 'Enviar';
-      
     })
 }
