@@ -58,41 +58,68 @@ window.addEventListener('scroll', function () {
   }
 });
 
-// function sendMail(event) {
-//   event.preventDefault();
+function sendEmail(event) {
+  event.preventDefault();
+  const emailData = {};
+  const formMail = document.querySelector('#formMail');
+  const btnSubmit = document.querySelector('#btnSubmit');
 
-//   const formMail= document.getElementById('formMail');
-//   const form = new FormData(formMail);
-//   const formData = {};
-//   form.forEach((value, key) => {
-//    formData[key]= value;
-//   });
-//   console.log(formData);
+  btnSubmit.disabled = true;
+  btnSubmit.textContent = 'Enviando...';
 
-//   const url = '';
-//   const mailData = {
-//     to: 'brunosobralss@hotmail.com',
-//     subject: 'Msg de brunosobral.com',
-//     html: `Nome:${formData.name}\nE-mail: ${formData.mail}\nAssunto: ${formData.subject}\nMensagem: ${formData.message}`
-//   };
+  const form = new FormData(formMail);
+  form.forEach((value, key) => {
+    emailData[key] = value;
+  });
+//verificar campos vazios
+  
+  fetch("https://formsu22bmit.co/ajax/brunosobralss@hotmail.com", {
+    method: "POST",
+    headers: { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    },
+    body: JSON.stringify({
+        nome: emailData.nome,
+        email: emailData.email,
+        assunto: emailData.assunto,
+        mensagem: emailData.mensagem,
+    })
+})
+    .then(response => {
+      response.json();
 
-//   fetch(url, {
-//     method: 'POST',
-//     headers: { 'Content-Type': 'application/json'},
-//     body: JSON.stringify({
-//       to: 'brunosobralss@hotmail.com',
-//       subject: 'Msg de brunosobral.com',
-//       html: `Nome:${formData.name}\nE-mail: ${formData.mail}\nAssunto: ${formData.subject}\nMensagem: ${formData.message}`
-//     }),
-//     mode: 'no-cors',
-//   }).then( response => {
-//     if (response.ok) {
-//       console.log('response ok',response);
-//     } else {
-//       console.log('response error',response);
-//     }
-//   })
-//   .catch(error => {
-//     console.error('Erro:', error);
-//   });
-// }
+      Toastify({
+        text: "😁 Obrigado!",
+        duration: 3000,
+        newWindow: true,
+        close: true,
+        gravity: "top",
+        position: "right",
+        stopOnFocus: true,
+        style: {
+          background: "#37B182",
+        },
+      }).showToast();
+    })
+    .then(data => console.log(data))
+    .catch(error => {
+      Toastify({
+        text: "😧 Por favor, tente novamente",
+        duration: 3000,
+        newWindow: true,
+        close: true,
+        gravity: "top",
+        position: "right",
+        stopOnFocus: true,
+        style: {
+          background: "#EC1839",
+        },
+      }).showToast();
+    })
+    .finally(() => {
+      btnSubmit.disabled = false;
+      btnSubmit.textContent = 'Enviar';
+      
+    })
+}
