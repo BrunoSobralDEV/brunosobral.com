@@ -578,6 +578,7 @@ h3.my-profession {
   flex: 0 0 33.33%;
   max-width: 33.33%;
   margin-bottom: 30px;
+  transition: all 0.3s ease;
 }
 
 .portfolio .portfolio-item-inner {
@@ -589,6 +590,9 @@ h3.my-profession {
 .portfolio .portfolio-item-inner .portfolio-img img {
   width: 100%;
   display: block;
+}
+.portfolio .portfolio-item:hover {
+  transform: scale(1.05);
 }
 
 
