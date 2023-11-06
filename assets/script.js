@@ -58,41 +58,113 @@ window.addEventListener('scroll', function () {
   }
 });
 
-// function sendMail(event) {
-//   event.preventDefault();
+function sendEmail(event) {
+  event.preventDefault();
+  const emailData = {};
+  const formMail = document.querySelector('#formMail');
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailInput = formMail.querySelector('[name="email"]');
+  const emailError = document.getElementById('emailError');
 
-//   const formMail= document.getElementById('formMail');
-//   const form = new FormData(formMail);
-//   const formData = {};
-//   form.forEach((value, key) => {
-//    formData[key]= value;
-//   });
-//   console.log(formData);
+  let hasError = false;
 
-//   const url = '';
-//   const mailData = {
-//     to: 'brunosobralss@hotmail.com',
-//     subject: 'Msg de brunosobral.com',
-//     html: `Nome:${formData.name}\nE-mail: ${formData.mail}\nAssunto: ${formData.subject}\nMensagem: ${formData.message}`
-//   };
+  function markError(element, errorSpan, message) {
+    element.classList.add('error-border');
+    errorSpan.textContent = message;
+    hasError = true;
+  }
+  
+  function clearError(element, errorSpan) {
+    element.classList.remove('error-border');
+    errorSpan.textContent = '';
+  }
 
-//   fetch(url, {
-//     method: 'POST',
-//     headers: { 'Content-Type': 'application/json'},
-//     body: JSON.stringify({
-//       to: 'brunosobralss@hotmail.com',
-//       subject: 'Msg de brunosobral.com',
-//       html: `Nome:${formData.name}\nE-mail: ${formData.mail}\nAssunto: ${formData.subject}\nMensagem: ${formData.message}`
-//     }),
-//     mode: 'no-cors',
-//   }).then( response => {
-//     if (response.ok) {
-//       console.log('response ok',response);
-//     } else {
-//       console.log('response error',response);
-//     }
-//   })
-//   .catch(error => {
-//     console.error('Erro:', error);
-//   });
-// }
+  const formElements = formMail.elements;
+  for (let i = 0; i < formElements.length; i++) {
+    const element = formElements[i];
+    const errorSpan = document.getElementById(element.name + 'Error');
+    
+    if(errorSpan) {
+      if (element.required && element.value.trim() === '') {
+        markError(element, errorSpan, 'Campo obrigatório.');
+      } else {
+        clearError(element, errorSpan);
+      }
+      if(element.type == 'email') {
+        if (!emailRegex.test(emailInput.value)) {
+          markError(element, emailError, 'O endereço de e-mail não é válido.');
+        } else {
+          clearError(element, emailError);
+        }
+      }
+    }
+  }
+
+  if (hasError) {
+    return
+  }
+  
+  const btnSubmit = document.querySelector('#btnSubmit');
+
+  btnSubmit.disabled = true;
+  btnSubmit.textContent = 'Enviando...';
+
+  const form = new FormData(formMail);
+  form.forEach((value, key) => {
+    emailData[key] = value;
+  });
+  
+  fetch("https://formsubmit.co/ajax/brunosobralss@hotmail.com", {
+    method: "POST",
+    headers: { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    },
+    body: JSON.stringify({
+        nome: emailData.nome,
+        email: emailData.email,
+        assunto: emailData.assunto,
+        mensagem: emailData.mensagem,
+    })
+})
+    .then(response => {
+      response.json();
+
+      form.forEach((value,name) => {
+        formMail.querySelector(`[name=${name}]`).value = '';
+      });
+
+      Toastify({
+        text: "😁 Obrigado!",
+        duration: 3000,
+        newWindow: true,
+        close: true,
+        gravity: "top",
+        position: "right",
+        stopOnFocus: true,
+        style: {
+          background: "#37B182",
+        },
+      }).showToast();
+    })
+    .then(data => console.log(data))
+    .catch(error => {
+      
+      Toastify({
+        text: "😧 Por favor, tente novamente",
+        duration: 3000,
+        newWindow: true,
+        close: true,
+        gravity: "top",
+        position: "right",
+        stopOnFocus: true,
+        style: {
+          background: "#EC1839",
+        },
+      }).showToast();
+    })
+    .finally(() => {
+      btnSubmit.disabled = false;
+      btnSubmit.textContent = 'Enviar';
+    })
+}

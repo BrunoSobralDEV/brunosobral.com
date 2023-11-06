@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="assets/css/color-4.css" class="alternate-style" title="color-4" disabled>
   <link rel="stylesheet" href="assets/css/color-5.css" class="alternate-style" title="color-5" disabled>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   
 </head>
 <body>
@@ -478,38 +479,43 @@
           <h4 class="contact-sub-title padd-15"></h4>
           
           <!-- Contact Form -->
-          <!-- <div class="row">
+          <div class="row">
             <div class="contact-form padd-15">
               <form id="formMail">
+                <input type="hidden" name="_cc" value="brunosobralss@gmail.com">
                 <div class="row">
                   <div class="form-item col-6 padd-15">
                     <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Nome" name="name">
+                      <input type="text" class="form-control" placeholder="Nome" name="nome" required>
+                      <span id="nomeError" class="error-message"></span>
                     </div>
                   </div>
                   <div class="form-item col-6 padd-15">
                     <div class="form-group">
-                      <input type="email" class="form-control" placeholder="Email" name="mail">
+                      <input type="email" class="form-control" placeholder="Email" name="email"  id="email" required>
+                      <span id="emailError" class="error-message"></span>
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-item col-12 padd-15">
                     <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Assunto" name="subject">
+                      <input type="text" class="form-control" placeholder="Assunto" name="assunto">
+                      <span id="assuntoError" class="error-message"></span>
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-item col-12 padd-15">
                     <div class="form-group">
-                      <textarea class="form-control" placeholder="Mensagem" name="message"></textarea>
+                      <textarea class="form-control" placeholder="Mensagem" name="mensagem" required></textarea>
+                      <span id="mensagemError" class="error-message"></span>
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-item col-12 padd-15">
-                    <button type="submit" class="btn" onclick="sendMail(event)">
+                    <button id="btnSubmit" type="submit" class="btn" onclick="sendEmail(event)">
                       <i class="fa-sharp fa-solid fa-paper-plane"></i>
                       Enviar
                     </button>
@@ -517,7 +523,7 @@
                 </div>
               </form>
             </div>
-          </div> -->
+          </div>
         </div>
       </section>
       <!-- Contact Section End -->
@@ -555,9 +561,14 @@
    
   <!-- typed -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js" referrerpolicy="no-referrer"></script>
+
+  <!-- smtpjs.com -->
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
   
+  <!-- https://apvarun.github.io/toastify-js/ -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
   <script src="assets/script.js"></script>
   <script src="assets/style-switcher.js"></script>
-
 </body>
 </html>
